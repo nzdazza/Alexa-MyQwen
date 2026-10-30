@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "qwen",
+      "invocationName": "my qwen",
       "intents": [
         {
           "name": "AskQwenIntent",
@@ -10,7 +10,9 @@
             "ask {query}",
             "tell me {query}",
             "explain {query}",
-            "{query}"
+            "find out {query}",
+            "what is {query}",
+            "what are {query}"
           ]
         },
         {

@@ -6,17 +6,27 @@
           "name": "Qwen Private",
           "summary": "Private voice access to a self-hosted Qwen model.",
           "description": "For personal development use. Forwards spoken questions to a configured LiteLLM endpoint.",
-          "examplePhrases": ["Alexa, open Qwen", "Alexa, ask Qwen to explain black holes"]
+          "examplePhrases": [
+            "Alexa, open my Qwen",
+            "Alexa, ask my Qwen to explain black holes",
+            "Alexa, ask my Qwen what are the tides today"
+          ]
         },
         "en-US": {
           "name": "Qwen Private",
           "summary": "Private voice access to a self-hosted Qwen model.",
           "description": "For personal development use. Forwards spoken questions to a configured LiteLLM endpoint.",
-          "examplePhrases": ["Alexa, open Qwen", "Alexa, ask Qwen to explain black holes"]
+          "examplePhrases": [
+            "Alexa, open my Qwen",
+            "Alexa, ask my Qwen to explain black holes",
+            "Alexa, ask my Qwen what are the tides today"
+          ]
         }
       },
       "isAvailableWorldwide": false,
       "distributionCountries": ["NZ", "AU", "US"],
+      "distributionMode": "PUBLIC",
+      "testingInstructions": "Say 'Alexa, open my Qwen', then ask a general question or ask for today's tides.",
       "category": "KNOWLEDGE_AND_TRIVIA"
     },
     "apis": { "custom": {} },

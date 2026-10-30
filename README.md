@@ -68,8 +68,8 @@ Alexa invocation names are subject to Amazon's model validation. “Qwen” may 
 
 ## Usage
 
-- “Alexa, open Qwen”
-- “Alexa, ask Qwen to explain why the sky is blue”
+- "Alexa, open my Qwen"
+- "Alexa, ask my Qwen to explain why the sky is blue"
 - During the same open session: “What about at sunset?”
 
 Alexa sessions are short-lived. Context is retained only in the current session and is capped by `MAX_HISTORY_TURNS`; it is not stored after the session ends.
