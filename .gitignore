@@ -1,0 +1,9 @@
+node_modules/
+coverage/
+.aws-sam/
+.env
+.env.*
+!.env.example
+*.zip
+npm-debug.log*
+

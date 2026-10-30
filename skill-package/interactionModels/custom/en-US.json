@@ -1,0 +1,35 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "qwen",
+      "intents": [
+        {
+          "name": "AskQwenIntent",
+          "slots": [{ "name": "query", "type": "AMAZON.SearchQuery" }],
+          "samples": [
+            "ask {query}",
+            "tell me {query}",
+            "explain {query}",
+            "{query}"
+          ]
+        },
+        {
+          "name": "RefreshRulesIntent",
+          "slots": [],
+          "samples": [
+            "refresh your rules",
+            "reload your rules",
+            "update your rules"
+          ]
+        },
+        { "name": "AMAZON.CancelIntent", "samples": [] },
+        { "name": "AMAZON.HelpIntent", "samples": [] },
+        { "name": "AMAZON.StopIntent", "samples": [] },
+        { "name": "AMAZON.FallbackIntent", "samples": [] },
+        { "name": "AMAZON.NavigateHomeIntent", "samples": [] }
+      ],
+      "types": []
+    }
+  }
+}
+

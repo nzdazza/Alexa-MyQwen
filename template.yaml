@@ -1,0 +1,64 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Private Qwen Alexa skill backed by LiteLLM
+Parameters:
+  LiteLLMBaseUrl:
+    Type: String
+  LiteLLMModel:
+    Type: String
+    Default: qwen2.5
+  LiteLLMApiKey:
+    Type: String
+    NoEcho: true
+  BraveSearchApiKey:
+    Type: String
+    NoEcho: true
+  NiwaApiKey:
+    Type: String
+    NoEcho: true
+  RulesUrl:
+    Type: String
+    Default: ''
+  DefaultLocationName:
+    Type: String
+    Default: Christchurch
+  DefaultLatitude:
+    Type: String
+    Default: '-43.5321'
+  DefaultLongitude:
+    Type: String
+    Default: '172.6362'
+  DefaultTimezone:
+    Type: String
+    Default: Pacific/Auckland
+Resources:
+  QwenSkillFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: src/index.handler
+      Runtime: nodejs20.x
+      Timeout: 10
+      MemorySize: 256
+      Environment:
+        Variables:
+          LITELLM_BASE_URL: !Ref LiteLLMBaseUrl
+          LITELLM_MODEL: !Ref LiteLLMModel
+          LITELLM_API_KEY: !Ref LiteLLMApiKey
+          REQUEST_TIMEOUT_MS: '7000'
+          MAX_HISTORY_TURNS: '4'
+          BRAVE_SEARCH_API_KEY: !Ref BraveSearchApiKey
+          NIWA_API_KEY: !Ref NiwaApiKey
+          RULES_URL: !Ref RulesUrl
+          RULES_CACHE_HOURS: '24'
+          DEFAULT_LOCATION_NAME: !Ref DefaultLocationName
+          DEFAULT_LATITUDE: !Ref DefaultLatitude
+          DEFAULT_LONGITUDE: !Ref DefaultLongitude
+          DEFAULT_TIMEZONE: !Ref DefaultTimezone
+          ALEXA_MAX_WORDS: '120'
+      Policies:
+        - AWSLambdaBasicExecutionRole
+Outputs:
+  FunctionArn:
+    Value: !GetAtt QwenSkillFunction.Arn
+
