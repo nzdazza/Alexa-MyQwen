@@ -4,6 +4,7 @@ const localConfig = require('./config');
 for (const [name, value] of Object.entries(localConfig)) {
   if (!process.env[name] && value !== undefined && value !== null && value !== '') process.env[name] = String(value);
 }
+if (!globalThis.fetch) globalThis.fetch = require('node-fetch');
 
 const Alexa = require('ask-sdk-core');
 const { compactHistory } = require('./litellm');
