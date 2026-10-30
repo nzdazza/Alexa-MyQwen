@@ -2,7 +2,7 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { loadRules, clearRulesCache, DEFAULT_RULES } = require('../src/rules');
+const { loadRules, clearRulesCache, DEFAULT_RULES } = require('../lambda/rules');
 
 test.beforeEach(() => clearRulesCache());
 

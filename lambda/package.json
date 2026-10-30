@@ -1,0 +1,10 @@
+{
+  "name": "alexa-myqwen-lambda",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "ask-sdk-core": "^2.14.0"
+  }
+}

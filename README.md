@@ -30,7 +30,20 @@ https://your-host.example/v1/chat/completions
 
 Set `LITELLM_BASE_URL` to the URL ending in `/v1`; the code adds `/chat/completions`.
 
-## Deploy the Lambda
+## Import as an Alexa-hosted skill
+
+The repository uses Amazon's Alexa-hosted Node.js skill package layout: application code is in `lambda/` and the voice model and manifest are in `skill-package/`.
+
+1. In the Alexa Developer Console, create a **Custom** skill.
+2. Select **Alexa-Hosted (Node.js)** and **English (AU)** as the default language for New Zealand devices.
+3. Select **Import skill** and enter `https://github.com/nzdazza/Alexa-MyQwen.git`.
+4. After the import completes, open the **Code** tab and edit `lambda/config.js`.
+5. Fill in the empty LiteLLM, Brave, NIWA, and rules URL values. The imported Alexa-hosted repository is separate from the public template repository; do not copy the edited credentials back to public GitHub.
+6. Click **Save**, then **Deploy**. On the Build tab, build the interaction model and enable development testing.
+
+The checked-in `lambda/config.js` contains placeholders only. `.env` is used only for local testing and is not imported.
+
+## Alternative: deploy your own Lambda
 
 ```bash
 npm ci
@@ -41,12 +54,12 @@ sam deploy --guided
 
 During `sam deploy --guided`, supply the base URL, model name, and API key. The template marks the key parameter `NoEcho`, but CloudFormation parameter values are not an ideal long-term secret store. For production, place the key in AWS Secrets Manager and inject it through your deployment system or adapt the function to retrieve it at runtime. Never commit `.env`, deployment parameter files containing secrets, or a real key.
 
-Copy the `FunctionArn` output. In AWS Lambda, add an **Alexa Skills Kit** trigger after creating the Alexa skill, and restrict it to that skill's ID. This prevents other Alexa skills from invoking the function.
+Copy the `FunctionArn` output. In AWS Lambda, add an **Alexa Skills Kit** trigger after creating the Alexa skill, and restrict it to that skill's ID. This prevents other Alexa skills from invoking the function. This alternative requires your own AWS account and AWS CLI credentials.
 
 ## Create/import the Alexa skill
 
 1. In the Alexa Developer Console, create a **Custom** skill named `Qwen Private`, using your preferred hosting option.
-2. For an ASK CLI workflow, replace `REPLACE_WITH_LAMBDA_ARN` in `skill-package/skill.json`, then import/deploy the `skill-package` directory with ASK CLI. Alternatively, paste `skill-package/interactionModels/custom/en-US.json` into the console's JSON editor.
+2. For a self-hosted ASK CLI workflow, set the deployed Lambda endpoint in the skill manifest. Alternatively, paste `skill-package/interactionModels/custom/en-US.json` into the console's JSON editor.
 3. Set the endpoint to the Lambda ARN and select the correct region.
 4. Build the model, enable testing in **Development**, and keep distribution private/unpublished.
 5. Add the skill ID to the Lambda Alexa Skills Kit trigger.

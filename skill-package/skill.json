@@ -2,6 +2,12 @@
   "manifest": {
     "publishingInformation": {
       "locales": {
+        "en-AU": {
+          "name": "Qwen Private",
+          "summary": "Private voice access to a self-hosted Qwen model.",
+          "description": "For personal development use. Forwards spoken questions to a configured LiteLLM endpoint.",
+          "examplePhrases": ["Alexa, open Qwen", "Alexa, ask Qwen to explain black holes"]
+        },
         "en-US": {
           "name": "Qwen Private",
           "summary": "Private voice access to a self-hosted Qwen model.",
@@ -10,10 +16,10 @@
         }
       },
       "isAvailableWorldwide": false,
-      "distributionCountries": ["US"],
+      "distributionCountries": ["NZ", "AU", "US"],
       "category": "KNOWLEDGE_AND_TRIVIA"
     },
-    "apis": { "custom": { "endpoint": { "uri": "REPLACE_WITH_LAMBDA_ARN" } } },
+    "apis": { "custom": {} },
     "manifestVersion": "1.0",
     "privacyAndCompliance": {
       "allowsPurchases": false,

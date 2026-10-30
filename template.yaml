@@ -35,8 +35,8 @@ Resources:
   QwenSkillFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: .
-      Handler: src/index.handler
+      CodeUri: lambda/
+      Handler: index.handler
       Runtime: nodejs20.x
       Timeout: 10
       MemorySize: 256

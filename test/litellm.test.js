@@ -2,7 +2,7 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { askLiteLLM, compactHistory, configFromEnv } = require('../src/litellm');
+const { askLiteLLM, compactHistory, configFromEnv } = require('../lambda/litellm');
 
 const config = { baseUrl: 'https://example.test/v1', apiKey: 'secret', model: 'qwen', timeoutMs: 100, maxHistoryTurns: 2, maxResponseChars: 100, systemPrompt: 'Be brief.' };
 

@@ -2,7 +2,7 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { answerQuestion, routeQuery, spokenAnswer } = require('../src/orchestrator');
+const { answerQuestion, routeQuery, spokenAnswer } = require('../lambda/orchestrator');
 
 test('routes tide language to NIWA and other questions to web search', () => {
   assert.equal(routeQuery('What are the tides today?'), 'tides');

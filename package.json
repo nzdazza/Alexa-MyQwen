@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "description": "Private Alexa custom skill forwarding requests to an OpenAI-compatible LiteLLM endpoint",
-  "main": "src/index.js",
+  "main": "lambda/index.js",
   "engines": { "node": ">=20" },
   "scripts": {
     "test": "node --test",
-    "check": "node --check src/index.js && node --check src/litellm.js && node --check src/orchestrator.js && node --check src/rules.js && node --check src/services.js"
+    "check": "node --check lambda/index.js && node --check lambda/config.js && node --check lambda/litellm.js && node --check lambda/orchestrator.js && node --check lambda/rules.js && node --check lambda/services.js"
   },
   "dependencies": {
     "ask-sdk-core": "^2.14.0"

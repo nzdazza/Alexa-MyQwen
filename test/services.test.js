@@ -2,7 +2,7 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { searchBrave, getNiwaTides } = require('../src/services');
+const { searchBrave, getNiwaTides } = require('../lambda/services');
 
 test('calls Brave Search with its subscription token', async () => {
   let request;
